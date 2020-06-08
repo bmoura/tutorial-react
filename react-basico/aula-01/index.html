@@ -7,6 +7,32 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.js"></script>
 	</head>
 	<body>
-		<!-- coloque o seu código aqui -->
+		<div id="meu-app-aula-01"></div>
+		<script type="text/babel">
+			class App01 extends React.Component{
+				constructor(){
+					super();
+					this.state = {
+						contador: 0
+					};
+				};
+				_calcularContador(valor){
+					this.setState({
+						contador: this.state.contador + valor
+					});
+				};
+				render(){
+					return (
+						<div>
+							<h1>Hello word</h1>
+							<button onClick={() => this._calcularContador(1)}>Somar</button>
+							<span>{this.state.contador}</span>
+							<button onClick={() => this._calcularContador(-1)}>Subtrair</button>
+						</div>
+					);
+				};
+			};
+			React.render(<App01/>, document.getElementById('meu-app-aula-01'));
+		</script>
 	</body>
 </html>

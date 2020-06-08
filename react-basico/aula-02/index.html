@@ -7,6 +7,100 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.js"></script>
 	</head>
 	<body>
+		<div id="ex01"></div>
+		<script type="text/babel">
+			class EX01 extends React.Component{
+				render(){
+					var titulo = "Exemplo 01: Sou o header e hoje é dia " + new Date().getDate();
+					return (
+						<div>
+							<h2>{titulo}</h2>
+						</div>
+					);
+				};
+			};
+			React.render(<EX01/>, document.getElementById('ex01'));
+		</script>
+		<br />
+
+		<div id="ex02"></div>
+		<script type="text/babel">
+			class EX02 extends React.Component{
+				render(){
+					var titulo = 'Exemplo 02: Números';
+					var items = ['um', 'dois', 'três'];
+					return (
+						<div>
+							<h2>{titulo}</h2>
+							<ul>
+								{
+									items.map(
+										(numero) => <li>{numero}</li>
+									)
+								}
+							</ul>
+						</div>
+					);
+				};
+			};
+			React.render(<EX02/>, document.getElementById('ex02'));
+		</script>
+		<br />
+		
+		<div id="ex03"></div>
+		<script type="text/babel">
+			class EX03 extends React.Component{
+				constructor(){
+					super();
+					this.state = {
+						valor: 0
+					};
+				};
+				_onClickReact(v){
+					this.setState({
+						valor: this.state.valor + v
+					});
+				};
+				render(){
+					var titulo = 'Exemplo 03: On Click',
+						_onClickJavaScript = function(){
+							document.getElementById('thisStateValor').innerHTML = 'JavaScript';
+						};
+					return (
+						<div>
+							<h2>{titulo}</h2>
+							<button id="onClickReact" onClick={() => this._onClickReact(1)}>onClick React</button>
+							<span id="thisStateValor">{this.state.valor}</span>
+							<button id="onClickJavaScript" onClick={_onClickJavaScript}>onClick JavaScript</button>
+						</div>
+					);
+				};
+			};
+			React.render(<EX03/>, document.getElementById('ex03'));
+		</script>
+		<br />
+
+		<div id="ex04"></div>
+		<script type="text/babel">
+			class EX04 extends React.Component{
+				render(){
+					var titulo = 'Exemplo 04: Função',
+						sub_render = function(){
+							return (
+								<div>
+									<p>Sou um texto criado pelo sub_render</p>
+								</div>
+							);
+						};
+					return (
+						<div>
+							<h2>{titulo}</h2>
+							{sub_render()}
+						</div>
+					);
+				};
+			};
+			React.render(<EX04/>, document.getElementById('ex04'));
+		</script>
 	</body>
 </html>
-

@@ -7,7 +7,7 @@ class App03 extends React.Component{
 	}
 
 	render(){
-		return <div>APP 03</div>;
+		return <div>APP 03d</div>;
 	}
 }
 export default App03;

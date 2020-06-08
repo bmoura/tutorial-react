@@ -1,7 +1,7 @@
 var path = require('path');
 const config = {
 	entry: {
-		app: path.join(__dirname, '/index.js')
+		app: path.join(__dirname, '/index.js'),
 	},
 	output: {
 		path: __dirname,
